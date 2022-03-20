@@ -1,8 +1,10 @@
 ﻿using MyList;
 
 ArrayList list = new ArrayList();
-for (int i = 0; i < 10; i++)
-{
-    list.Add(i);
-    list.Write();
-}
+list.Write();
+list.Add(5);
+list.Write();
+list.Add(5);
+list.Write();
+list.AddF(3);
+list.Write();

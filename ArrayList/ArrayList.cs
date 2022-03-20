@@ -24,6 +24,23 @@ namespace MyList
             Length++;
         }
 
+        public void AddF(int value)
+        {
+            if (Length >= _array.Length)
+            {
+                UpSize();
+            }
+
+            int i = Length;
+            while (i > 0)
+            {
+                _array[i] = _array[i - 1];
+                i--;
+            }
+            _array[0] = value;
+            Length++;
+        }
+
         public void DeleteLast()
         {
             Length--;
