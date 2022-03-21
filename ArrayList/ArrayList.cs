@@ -26,6 +26,7 @@ namespace MyList
 
         public void AddF(int value)
         {
+            Length++;
             if (Length >= _array.Length)
             {
                 UpSize();
@@ -38,7 +39,6 @@ namespace MyList
                 i--;
             }
             _array[0] = value;
-            Length++;
         }
 
         public void DeleteLast()
