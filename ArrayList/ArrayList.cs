@@ -13,7 +13,7 @@ namespace MyList
             Length = 0;
         }
 
-        public void Add(int value)
+        public void AddLast(int value)
         {
             if (Length >= _array.Length)
             {
@@ -24,7 +24,7 @@ namespace MyList
             Length++;
         }
 
-        public void AddF(int value)
+        public void AddFirst(int value)
         {
             Length++;
             if (Length >= _array.Length)
@@ -39,6 +39,23 @@ namespace MyList
                 i--;
             }
             _array[0] = value;
+        }
+
+        public void AddByIndex(int index, int value)
+        {
+            if (Length >= _array.Length)
+            {
+                UpSize();
+            }
+
+            int i = Length;
+            while (i > index)
+            {
+                _array[i] = _array[i - 1];
+                i--;
+            }
+            _array[index] = value;
+            Length++;
         }
 
         public void DeleteLast()
