@@ -115,6 +115,26 @@ namespace MyList
                 DownSize();
             }
         }
+        public void DeleteNFirst(int n)
+        {
+            if (Length <= 0)
+            {
+                throw new Exception("list can't be empty");
+            }
+
+            int newLength = Length - n;
+
+            for (int i=0; i<newLength; i++)
+            {
+                _array[i] = _array[i + n];
+            }
+            Length = newLength;
+
+            if (_array.Length / Length >= 2)
+            {
+                DownSize();
+            }
+        }
 
         private void UpSize()
         {
