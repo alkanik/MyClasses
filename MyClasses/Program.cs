@@ -37,3 +37,5 @@ list.ChangeValueByIndex(2,17) ;
 list.Write();
 list.Reverse();
 list.Write();
+Console.WriteLine(list.FindMax());
+Console.WriteLine(list.FindMin());

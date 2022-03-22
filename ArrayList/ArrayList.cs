@@ -193,6 +193,31 @@ namespace MyList
                 _array[Length - (1 + i)] = tmp;
             }
         }
+        public int FindMax()
+        {
+            int max = _array[0];
+            for (int i = 1; i < Length; i++)
+            {
+                if (_array[i] > max)
+                {
+                    max = _array[i];
+                }
+            }
+            return max;
+        }
+
+        public int FindMin()
+        {
+            int min = _array[0];
+            for (int i = 1; i < Length; i++)
+            {
+                if (_array[i] < min)
+                {
+                    min = _array[i];
+                }
+            }
+            return min;
+        }
 
 
         private void UpSize()
