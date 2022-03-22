@@ -283,6 +283,21 @@ namespace MyList
             }
         }
 
+        public int DeleteFirstValue(int value)
+        {
+            int index = -1;
+            for (int i = 0; i < Length; i++)
+            {
+                if (_array[i] == value)
+                {
+                    index = i;
+                    DeleteByIndex(index);
+                    //break;
+                }
+            }
+            return index;
+        }
+
         private void UpSize()
         {
             int newLength = (int)(_array.Length * 1.5d + 1);

@@ -43,5 +43,7 @@ list.Write();
 //Console.WriteLine(list.FindIndexMin());
 //list.SortAscending();
 //list.Write();
-list.SortDescending();
+//list.SortDescending();
+//list.Write();
+Console.WriteLine(list.DeleteFirstValue(-1));
 list.Write();
