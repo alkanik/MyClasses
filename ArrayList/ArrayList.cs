@@ -13,6 +13,28 @@ namespace MyList
             Length = 0;
         }
 
+        public ArrayList(int[] array)
+        {
+            if (array == null || array.Length == 0)
+            {
+                _array = new int[10];
+                Length = 0;
+            }
+            else
+            {
+                _array = array;
+                Length = array.Length;
+                UpSize();
+            }
+        }
+
+        public ArrayList(int value)
+        {
+            _array = new int[10];
+            _array[0] = value;
+            Length = 1;
+        }
+
         public void AddLast(int value)
         {
             if (Length >= _array.Length)
