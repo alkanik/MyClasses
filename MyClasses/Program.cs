@@ -20,3 +20,5 @@ list.DeleteLast();
 list.Write();
 list.DeleteFirst();
 list.Write();
+list.DeleteByIndex(2);
+list.Write();

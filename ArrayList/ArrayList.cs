@@ -76,14 +76,26 @@ namespace MyList
             {
                 throw new Exception("list can't be empty");
             }
-            else
+
+            for (int i =0; i < Length; i++)
+                {
+                    _array[i] = _array[i + 1];
+                }
+            Length--;
+        }
+
+        public void DeleteByIndex(int index)
+        {
+            if (Length <= 0)
             {
-                for (int i =0; i < Length; i++)
-                    {
-                        _array[i] = _array[i + 1];
-                    }
-                Length--;
+                throw new Exception("list can't be empty");
             }
+
+            for (int i=index; i<Length; i++)
+            {
+                _array[i] = _array[i + 1];
+            }
+            Length--;
         }
 
         private void UpSize()
