@@ -64,10 +64,8 @@ namespace MyList
             {
                 throw new Exception("list can't be empty");
             }
-            else
-            {
-                Length--;
-            }
+            
+            Length--;
         }
 
         public void DeleteFirst()
@@ -98,9 +96,39 @@ namespace MyList
             Length--;
         }
 
+        public void DeleteNLast(int n)
+        {
+            if (Length <= 0)
+            {
+                throw new Exception("list can't be empty");
+            }
+
+            int newLength = Length - n;
+
+            while (Length > newLength)
+            {
+                Length--;
+            }
+
+            //if (_array.Length/Length >= 2)
+            //{
+            //    DownSize();
+            //}
+        }
+
         private void UpSize()
         {
             int newLength = (int)(_array.Length * 1.5d + 1);
+            int[] newArray = new int[newLength];
+            for (int i = 0; i < _array.Length; i++)
+            {
+                newArray[i] = _array[i];
+            }
+            _array = newArray;
+        }
+        private void DownSize()
+        {
+            int newLength = _array.Length / 3 * 2 + 1;
             int[] newArray = new int[newLength];
             for (int i = 0; i < _array.Length; i++)
             {
