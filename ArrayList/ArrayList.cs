@@ -174,6 +174,16 @@ namespace MyList
             return index;
         }
 
+        public void ChangeValueByIndex(int index, int value)
+        {
+            if (Length <= index)
+            {
+                throw new Exception("index out of range");
+            }
+
+            _array[index] = value;
+        }
+
         private void UpSize()
         {
             int newLength = (int)(_array.Length * 1.5d + 1);
