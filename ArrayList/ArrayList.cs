@@ -283,7 +283,7 @@ namespace MyList
             }
         }
 
-        public int DeleteFirstValue(int value)
+        public int DeleteFirstByValue(int value)
         {
             int index = -1;
             for (int i = 0; i < Length; i++)
@@ -292,10 +292,27 @@ namespace MyList
                 {
                     index = i;
                     DeleteByIndex(index);
-                    //break;
                 }
             }
             return index;
+        }
+        public int DeleteAllByValue(int value)
+        {
+            int count = 0;
+            for (int i = 0; i < Length; i++)
+            {
+                if (_array[i] == value)
+                {
+                    count++;
+                }
+                else
+                {
+                    _array[i - count] = _array[i];
+                }
+            }
+            Length -= count;
+
+            return count;
         }
 
         private void UpSize()
