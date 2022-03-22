@@ -28,5 +28,7 @@ list.DeleteByIndex(2);
 list.Write();
 //list.DeleteNLast(2);
 //list.Write();
-list.DeleteNFirst(2);
+//list.DeleteNFirst(2);
+//list.Write();
+list.DeleteNByIndex(2,2);
 list.Write();

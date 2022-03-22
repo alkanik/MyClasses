@@ -136,6 +136,27 @@ namespace MyList
             }
         }
 
+        public void DeleteNByIndex(int n, int index)
+        {
+            if (Length <= 0)
+            {
+                throw new Exception("list can't be empty");
+            }
+
+            int newLength = Length - n;
+
+            for (int i = index; i < newLength; i++)
+            {
+                _array[i] = _array[i + n];
+            }
+            Length = newLength;
+
+            if (_array.Length / Length >= 2)
+            {
+                DownSize();
+            }
+        }
+
         private void UpSize()
         {
             int newLength = (int)(_array.Length * 1.5d + 1);
