@@ -110,10 +110,10 @@ namespace MyList
                 Length--;
             }
 
-            //if (_array.Length/Length >= 2)
-            //{
-            //    DownSize();
-            //}
+            if (_array.Length / Length >= 2)
+            {
+                DownSize();
+            }
         }
 
         private void UpSize()
@@ -130,7 +130,7 @@ namespace MyList
         {
             int newLength = _array.Length / 3 * 2 + 1;
             int[] newArray = new int[newLength];
-            for (int i = 0; i < _array.Length; i++)
+            for (int i = 0; i < newArray.Length; i++)
             {
                 newArray[i] = _array[i];
             }
