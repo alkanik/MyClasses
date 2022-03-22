@@ -219,6 +219,36 @@ namespace MyList
             return min;
         }
 
+        public int FindIndexMax()
+        {
+            int max = _array[0];
+            int index = 0;
+            for (int i = 1; i < Length; i++)
+            {
+                if (_array[i] > max)
+                {
+                    max = _array[i];
+                    index = i;
+                }
+            }
+            return index;
+        }
+
+        public int FindIndexMin()
+        {
+            int min = _array[0];
+            int index = 0;
+            for (int i = 1; i < Length; i++)
+            {
+                if (_array[i] < min)
+                {
+                    min = _array[i];
+                    index = i;
+                }
+            }
+            return index;
+        }
+
 
         private void UpSize()
         {

@@ -39,3 +39,5 @@ list.Reverse();
 list.Write();
 Console.WriteLine(list.FindMax());
 Console.WriteLine(list.FindMin());
+Console.WriteLine(list.FindIndexMax());
+Console.WriteLine(list.FindIndexMin());
