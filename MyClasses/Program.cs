@@ -30,5 +30,6 @@ list.Write();
 //list.Write();
 //list.DeleteNFirst(2);
 //list.Write();
-list.DeleteNByIndex(2,2);
-list.Write();
+//list.DeleteNByIndex(2,2);
+//list.Write();
+Console.WriteLine(list.FindIndexByValue(7));
