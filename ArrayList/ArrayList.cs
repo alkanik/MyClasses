@@ -184,6 +184,17 @@ namespace MyList
             _array[index] = value;
         }
 
+        public void Reverse()
+        {
+            for (int i = 0; i < (Length / 2); i++)
+            {
+                int tmp = _array[i];
+                _array[i] = _array[Length - (1 + i)];
+                _array[Length - (1 + i)] = tmp;
+            }
+        }
+
+
         private void UpSize()
         {
             int newLength = (int)(_array.Length * 1.5d + 1);
