@@ -249,6 +249,39 @@ namespace MyList
             return index;
         }
 
+        public void SortAscending()
+        {
+            int tmp = 0;
+            for (int i = 0; i < Length-1; i++)
+            {
+                for (int j = i + 1; j < Length; j++)
+                {
+                    if (_array[i] > _array[j])
+                    {
+                        tmp = _array[i];
+                        _array[i] = _array[j];
+                        _array[j] = tmp;
+                    }
+                }
+            }
+        }
+
+        public void SortDescending()
+        {
+            int tmp = 0;
+            for (int i = 0; i < Length - 1; i++)
+            {
+                for (int j = i + 1; j < Length; j++)
+                {
+                    if (_array[i] < _array[j])
+                    {
+                        tmp = _array[i];
+                        _array[i] = _array[j];
+                        _array[j] = tmp;
+                    }
+                }
+            }
+        }
 
         private void UpSize()
         {
