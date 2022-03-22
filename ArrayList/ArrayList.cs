@@ -78,6 +78,10 @@ namespace MyList
             }
             else
             {
+                for (int i =0; i < Length; i++)
+                    {
+                        _array[i] = _array[i + 1];
+                    }
                 Length--;
             }
         }
