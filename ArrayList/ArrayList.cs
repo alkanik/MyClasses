@@ -60,7 +60,26 @@ namespace MyList
 
         public void DeleteLast()
         {
-            Length--;
+            if (Length <=0 )
+            {
+                throw new Exception("list can't be empty");
+            }
+            else
+            {
+                Length--;
+            }
+        }
+
+        public void DeleteFirst()
+        {
+            if (Length <= 0)
+            {
+                throw new Exception("list can't be empty");
+            }
+            else
+            {
+                Length--;
+            }
         }
 
         private void UpSize()
