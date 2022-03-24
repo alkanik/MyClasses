@@ -358,14 +358,46 @@ namespace MyList
             _array = newArray;
         }
 
-        public void Write()
+        public override string ToString()
         {
-            Console.Write($"L={Length} RL={_array.Length}   ");
+            string s = "";
+
             for (int i = 0; i < Length; i++)
             {
-                Console.Write($"{_array[i]} ");
+                s += $"{_array[i]} ";
             }
-            Console.WriteLine();
+
+            return s;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            bool isEqual = true;
+
+            if (obj == null || !(obj is ArrayList))
+            {
+                isEqual = false;
+            }
+            else
+            {
+                ArrayList list = (ArrayList)obj;
+
+                if (list.Length != this.Length)
+                {
+                    isEqual = false;
+                }
+                else
+                {
+                    for (int i = 0; i < this.Length; i++)
+                    {
+                        if (list[i] != this[i])
+                        {
+                            isEqual = false;
+                        }
+                    }
+                }
+            }
+            return isEqual;
         }
     }
 }
