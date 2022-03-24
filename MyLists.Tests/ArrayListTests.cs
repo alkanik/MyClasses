@@ -15,6 +15,14 @@ namespace MyLists.Tests
             Assert.AreEqual(expectedList, actualList);
         }
 
+        [TestCaseSource(typeof(AddFirstTestSource))]
+        public void AddFirstTest(int value, MyArrayList list, MyArrayList expectedList)
+        {
+            list.AddFirst(value);
+            MyArrayList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
+
         [TestCaseSource(typeof(DeleteAllByValueTestSource))]
         public void DeleteAllByValueTest(int value, MyArrayList list, MyArrayList expectedList, int expectedNumber)
         {
