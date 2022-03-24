@@ -1,17 +1,26 @@
 ﻿using NUnit.Framework;
 using System.Collections;
-using MyLists.Tests.ArrayListTestsSources;
+using MyList;
+using MyLists.Tests.ArrayListTestSources;
 
 namespace MyLists.Tests
 {
     public class ArrayListTests
     {
+        [TestCaseSource(typeof(AddLastTestSource))]
+        public void AddLastTest(int value, MyArrayList list, MyArrayList expectedList)
+        {
+            list.AddLast(value);
+            MyArrayList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
+
         [TestCaseSource(typeof(DeleteAllByValueTestSource))]
-        public void DeleteAllByValueTest(int value, ArrayList list, ArrayList expectedList, int expectedNumber)
+        public void DeleteAllByValueTest(int value, MyArrayList list, MyArrayList expectedList, int expectedNumber)
         {
             int actualNumber = list.DeleteAllByValue(value);
 
-            ArrayList actualList = list;
+            MyArrayList actualList = list;
 
             Assert.AreEqual(expectedNumber, actualNumber);
             Assert.AreEqual(expectedList, actualList);

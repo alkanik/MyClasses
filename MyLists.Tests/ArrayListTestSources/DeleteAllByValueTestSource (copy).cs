@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyList;
 
 namespace MyLists.Tests.ArrayListTestSources
 {
@@ -11,15 +12,15 @@ namespace MyLists.Tests.ArrayListTestSources
         public IEnumerator GetEnumerator()
         {
             int value = 3;
-            ArrayList list = new ArrayList(new int[] { 1, 2, 3, 4, 5 });
-            ArrayList expectedList = new ArrayList(new int[] { 1, 2, 4, 5 });
+            MyArrayList list = new MyArrayList(new int[] { 1, 2, 3, 4, 5 });
+            MyArrayList expectedList = new MyArrayList(new int[] { 1, 2, 4, 5 });
             int expectedNumber = 1;
             yield return new object[] { value, list, expectedList, expectedNumber };
 
 
             value = 2;
-            list = new ArrayList(new int[] { 1, 2, 2, 2, 5 });
-            expectedList = new ArrayList(new int[] { 1, 5 });
+            list = new MyArrayList(new int[] { 1, 2, 2, 2, 5 });
+            expectedList = new MyArrayList(new int[] { 1, 5 });
             expectedNumber = 3;
             yield return new object[] { value, list, expectedList, expectedNumber };
 
@@ -27,8 +28,8 @@ namespace MyLists.Tests.ArrayListTestSources
             yield return new object[]
             {
                 5,
-                new ArrayList(new int[] { 1, 2, 2 }),
-                new ArrayList(new int[] { 1, 2, 2 }),
+                new MyArrayList(new int[] { 1, 2, 2 }),
+                new MyArrayList(new int[] { 1, 2, 2 }),
                 0
             };
         }

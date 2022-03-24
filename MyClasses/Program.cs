@@ -1,10 +1,10 @@
 ﻿using MyList;
 
-ArrayList list = new ArrayList();
+MyArrayList list = new MyArrayList();
 Console.WriteLine(list);
-ArrayList list2 = new ArrayList(new int[] { 1, 2, 3 });
+MyArrayList list2 = new MyArrayList(new int[] { 1, 2, 3 });
 Console.WriteLine(list2);
-ArrayList list3 = new ArrayList(5);
+MyArrayList list3 = new MyArrayList(5);
 Console.WriteLine(list3);
 
 Console.WriteLine(list3.Equals(list2));

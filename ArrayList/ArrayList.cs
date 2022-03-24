@@ -1,19 +1,39 @@
 ﻿using System;
 namespace MyList
 {
-    public class ArrayList
+    public class MyArrayList
     {
+        public int this[int index]
+        {
+            get
+            {
+                if (index < 0 || index >= Length)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                return _array[index];
+            }
+            set
+            {
+                if (index < 0 || index >= Length)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                _array[index] = value;
+            }
+        }
+
         public int Length { get; private set; }
 
         private int[] _array;
 
-        public ArrayList()
+        public MyArrayList()
         {
             _array = new int[10];
             Length = 0;
         }
 
-        public ArrayList(int[] array)
+        public MyArrayList(int[] array)
         {
             if (array == null || array.Length == 0)
             {
@@ -28,7 +48,7 @@ namespace MyList
             }
         }
 
-        public ArrayList(int value)
+        public MyArrayList(int value)
         {
             _array = new int[10];
             _array[0] = value;
@@ -374,13 +394,13 @@ namespace MyList
         {
             bool isEqual = true;
 
-            if (obj == null || !(obj is ArrayList))
+            if (obj == null || !(obj is MyArrayList))
             {
                 isEqual = false;
             }
             else
             {
-                ArrayList list = (ArrayList)obj;
+                MyArrayList list = (MyArrayList)obj;
 
                 if (list.Length != this.Length)
                 {
