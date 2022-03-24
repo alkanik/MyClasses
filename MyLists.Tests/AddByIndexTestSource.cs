@@ -2,6 +2,7 @@
 using System.Collections;
 using MyList;
 using MyLists.Tests.ArrayListTestSources;
+using System;
 
 namespace MyLists.Tests
 {
@@ -21,6 +22,22 @@ namespace MyLists.Tests
             list.AddFirst(value);
             MyArrayList actualList = list;
             Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(AddByIndexTestSource))]
+        public void AddByIndexTest(int index, int value, MyArrayList list, MyArrayList expectedList)
+        {
+            list.AddByIndex(index, value);
+            MyArrayList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(IndexOutOfRangeTestSourse))]
+        public void AddByIndexTest_WhenIndexIsOutOfRange_ShouldThrowExeption(int index, int value, MyArrayList list)
+        {
+            {
+                Assert.Throws<IndexOutOfRangeException>(() => list.AddByIndex(index,value));
+            }
         }
 
         [TestCaseSource(typeof(DeleteAllByValueTestSource))]

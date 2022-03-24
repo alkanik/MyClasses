@@ -85,6 +85,11 @@ namespace MyList
 
         public void AddByIndex(int index, int value)
         {
+            if (index >= Length || index < 0)
+            {
+                throw new IndexOutOfRangeException();
+            }
+
             if (Length >= _array.Length)
             {
                 UpSize();
@@ -126,9 +131,9 @@ namespace MyList
 
         public void DeleteByIndex(int index)
         {
-            if (Length <= 0)
+            if (index >= Length || index < 0)
             {
-                throw new Exception("list can't be empty");
+                throw new IndexOutOfRangeException();
             }
 
             for (int i=index; i<Length; i++)
