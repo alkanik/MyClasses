@@ -137,6 +137,27 @@ namespace MyLists
             }
         }
 
+        public void DeleteByIndex(int index)
+        {
+            if (index < 0 || index >= Length)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            else if (index == 0)
+            {
+                _root = _root.Next;
+            }
+            else
+            {
+                Node crnt = _root;
+                for (int i = 1; i < index; i++)
+                {
+                    crnt = crnt.Next;
+                }
+                crnt.Next = crnt.Next.Next;
+            }
+        }
+
 
         private Node GetNodeByIndex(int index)
         {

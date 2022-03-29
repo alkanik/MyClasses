@@ -40,5 +40,20 @@ namespace MyLists.Tests
             }
         }
 
+        [TestCaseSource(typeof(DeleteByIndexTestSource))]
+        public void DeleteByIndexTest(int index, MyLinkedList list, MyLinkedList expectedList)
+        {
+            list.DeleteByIndex(index);
+            MyLinkedList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(DeleteByIndexNegativeTestSource))]
+        public void DeleteByIndexTest_WhenIndexIsOutOfRange_ShouldThrowExeption(int index, MyLinkedList list)
+        {
+            {
+                Assert.Throws<IndexOutOfRangeException>(() => list.DeleteByIndex(index));
+            }
+        }
     }
 }
