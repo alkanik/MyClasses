@@ -95,6 +95,21 @@ namespace MyLists
             }
         }
 
+        public void AddFirst(int value)
+        {
+            if (_root == null)
+            {
+                _root = new Node(value);
+                _tail = _root;
+            }
+            else
+            {
+                Node tmp = _root;
+                _root = new Node(value);
+                _root.Next = tmp;
+            }
+        }
+
         public override string ToString()
         {
             string s = "";
