@@ -55,5 +55,21 @@ namespace MyLists.Tests
                 Assert.Throws<IndexOutOfRangeException>(() => list.DeleteByIndex(index));
             }
         }
+
+        [TestCaseSource(typeof(DeleteLastTestSource))]
+        public void DeleteLastTest(MyLinkedList list, MyLinkedList expectedList)
+        {
+            list.DeleteLast();
+            MyLinkedList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(DeleteLastNegativeTestSource))]
+        public void DeleteLastTest_WhenListIsEmpty_ShouldThrowExeption(MyLinkedList list)
+        {
+            {
+                Assert.Throws<Exception>(() => list.DeleteLast());
+            }
+        }
     }
 }

@@ -137,6 +137,27 @@ namespace MyLists
             }
         }
 
+
+        public void DeleteLast()
+        {
+            if (_root is null)
+            {
+                throw new Exception("list is empty");
+            }
+
+            else if (Length == 1)
+            {
+                _root = null;
+                _tail = _root;
+            }
+
+            else
+            {
+                _tail = GetNodeByIndex(Length - 2);
+                _tail.Next = null;
+            }
+        }
+
         public void DeleteByIndex(int index)
         {
             if (index < 0 || index >= Length)
