@@ -16,9 +16,11 @@
 
   <ItemGroup>
     <None Remove="ArrayListTestSources\" />
+    <None Remove="ArrayListTestSources %28copy%29\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ArrayListTestSources\" />
+    <Folder Include="LinkedListTestSources\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ArrayList\MyLists.csproj" />

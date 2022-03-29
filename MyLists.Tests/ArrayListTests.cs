@@ -36,7 +36,7 @@ namespace MyLists.Tests
         public void AddByIndexTest_WhenIndexIsOutOfRange_ShouldThrowExeption(int index, int value, MyArrayList list)
         {
             {
-                Assert.Throws<IndexOutOfRangeException>(() => list.AddByIndex(index,value));
+                Assert.Throws<IndexOutOfRangeException>(() => list.AddByIndex(index, value));
             }
         }
 
