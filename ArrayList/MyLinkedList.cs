@@ -158,6 +158,25 @@ namespace MyLists
             }
         }
 
+        public void DeleteFirst()
+        {
+            if (_root is null)
+            {
+                throw new Exception("list is empty");
+            }
+
+            else if (Length == 1)
+            {
+                _root = null;
+                _tail = _root;
+            }
+
+            else
+            {
+                _root = _root.Next;
+            }
+        }
+
         public void DeleteByIndex(int index)
         {
             if (index < 0 || index >= Length)
