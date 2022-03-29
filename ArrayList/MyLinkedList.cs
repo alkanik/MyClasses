@@ -110,6 +110,44 @@ namespace MyLists
             }
         }
 
+        public void AddByIndex(int index, int value)
+        {
+            if (index<0 || index>Length)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            else if(_root == null)
+            {
+                _root = new Node(value);
+                _tail = _root;
+            }
+
+            else if (index == 0)
+            {
+                AddFirst(value);
+            }
+
+            else
+            {
+                Node prevCrnt = GetNodeByIndex(index - 1);
+                Node crnt = GetNodeByIndex(index);
+                Node newCrnt = new Node(value);
+                prevCrnt.Next = newCrnt;
+                newCrnt.Next = crnt;
+            }
+        }
+
+
+        private Node GetNodeByIndex(int index)
+        {
+            Node crnt = _root;
+            for (int i=1; i<=index; i++)
+            {
+                crnt = crnt.Next;
+            }
+            return crnt;
+        }
+
         public override string ToString()
         {
             string s = "";
