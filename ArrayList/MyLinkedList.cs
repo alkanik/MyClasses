@@ -216,6 +216,23 @@ namespace MyLists
             }
         }
 
+        public void DeleteNFirst(int n)
+        {
+            if (n > Length)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            else if (n == Length)
+            {
+                _root = null;
+                _tail = _root;
+            }
+            else
+            {
+                _root = GetNodeByIndex(n);
+            }
+        }
+
         private Node GetNodeByIndex(int index)
         {
             Node crnt = _root;

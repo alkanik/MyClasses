@@ -103,5 +103,21 @@ namespace MyLists.Tests
                 Assert.Throws<IndexOutOfRangeException>(() => list.DeleteNLast(n));
             }
         }
+
+        [TestCaseSource(typeof(DeleteNFirstTestSource))]
+        public void DeleteNFirstTest(int n, MyLinkedList list, MyLinkedList expectedList)
+        {
+            list.DeleteNFirst(n);
+            MyLinkedList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(DeleteNFirstNegativeTestSource))]
+        public void DeleteNFirstTest_WhenNMoreThanLength_ShouldThrowIndexOutOfRangeException(int n, MyLinkedList list)
+        {
+            {
+                Assert.Throws<IndexOutOfRangeException>(() => list.DeleteNLast(n));
+            }
+        }
     }
 }
