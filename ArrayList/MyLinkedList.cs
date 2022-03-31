@@ -200,7 +200,7 @@ namespace MyLists
 
         public void DeleteNLast(int n)
         {
-            if (n > Length)
+            if (n > Length || n<0)
             {
                 throw new IndexOutOfRangeException();
             }
@@ -218,7 +218,7 @@ namespace MyLists
 
         public void DeleteNFirst(int n)
         {
-            if (n > Length)
+            if (n > Length || n<0)
             {
                 throw new IndexOutOfRangeException();
             }
@@ -230,6 +230,25 @@ namespace MyLists
             else
             {
                 _root = GetNodeByIndex(n);
+            }
+        }
+
+        public void DeleteNByIndex(int index, int n)
+        {
+            if (n > Length || n<0 || index <0 || index >=Length || (index+n)>Length)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            else if ((index+n)==Length)
+            {
+                _root = null;
+                _tail = _root;
+            }
+            else
+            {
+                Node crntL = GetNodeByIndex(index-1);
+                Node crntR = GetNodeByIndex(index+n);
+                crntL.Next = crntR;
             }
         }
 

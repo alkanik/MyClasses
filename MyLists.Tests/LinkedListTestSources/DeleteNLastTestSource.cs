@@ -25,6 +25,11 @@ namespace MyLists.Tests.LinkedListTestSources
             list = new MyLinkedList(new int[] { 1,2,3,4 });
             expectedList = new MyLinkedList(new int[] {1 });
             yield return new object[] {n, list, expectedList };
+
+            n = 0;
+            list = new MyLinkedList(new int[] { 1, 2, 3, 4 });
+            expectedList = new MyLinkedList(new int[] { 1, 2, 3, 4 });
+            yield return new object[] { n, list, expectedList };
         }
     }
 }
