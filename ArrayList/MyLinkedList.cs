@@ -198,6 +198,23 @@ namespace MyLists
             }
         }
 
+        public void DeleteNLast(int n)
+        {
+            if (n > Length)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            else if (n == Length)
+            {
+                _root = null;
+                _tail = _root;
+            }
+            else
+            {
+                _tail = GetNodeByIndex(Length - n-1);
+                _tail.Next = null;
+            }
+        }
 
         private Node GetNodeByIndex(int index)
         {
