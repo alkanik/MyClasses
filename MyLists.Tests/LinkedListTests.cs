@@ -135,5 +135,12 @@ namespace MyLists.Tests
                 Assert.Throws<IndexOutOfRangeException>(() => list.DeleteNByIndex(index, n));
             }
         }
+
+        [TestCaseSource(typeof(FindIndexByValueTestSource))]
+        public void FindIndexByValueTest(int value, MyLinkedList list, int expectedIndex)
+        {
+            int actualIndex = list.FindIndexByValue(value);
+            Assert.AreEqual(expectedIndex, actualIndex);
+        }
     }
 }

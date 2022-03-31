@@ -252,6 +252,25 @@ namespace MyLists
             }
         }
 
+        public int FindIndexByValue(int value)
+        {
+
+            int index = -1;
+            Node crnt = _root;
+            
+            for (int i = 0; crnt != null; i++)
+            {
+                if (crnt.Value == value)
+                {
+                    index = i;
+                    break;
+                }
+                crnt = crnt.Next;
+            }
+
+            return index;
+        }
+
         private Node GetNodeByIndex(int index)
         {
             Node crnt = _root;
