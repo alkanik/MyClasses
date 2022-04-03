@@ -242,5 +242,23 @@ namespace MyLists.Tests
             MyLinkedList actualList = list;
             Assert.AreEqual(expectedList, actualList);
         }
+
+        [TestCaseSource(typeof(DeleteFirstByValueTestSource))]
+        public void DeleteFirstByValueTest(int value, MyLinkedList list, int expectedIndex, MyLinkedList expectedList)
+        {
+            int actualIndex = list.DeleteFirstByValue(value);
+            MyLinkedList actualList = list;
+            Assert.AreEqual(expectedIndex, actualIndex);
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(DeleteAllByValueTestSource))]
+        public void DeleteAllByValueTest(int value, MyLinkedList list, int expectedNumber, MyLinkedList expectedList)
+        {
+            int actualNumber = list.DeleteAllByValue(value);
+            MyLinkedList actualList = list;
+            Assert.AreEqual(expectedNumber, actualNumber);
+            Assert.AreEqual(expectedList, actualList);
+        }
     }
 }

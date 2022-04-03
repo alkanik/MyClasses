@@ -469,6 +469,41 @@ namespace MyLists
             _tail = GetNodeByIndex(l - 1);
         }
 
+        public int DeleteFirstByValue(int value)
+        {
+            int index = -1;
+            Node crnt = _root;
+            for (int i=0; crnt!=null; i++)
+            {
+                if (crnt.Value == value)
+                {
+                    index = i;
+                    DeleteByIndex(index);
+                    break;
+                }
+                crnt = crnt.Next;
+            }
+            return index;
+        }
+
+        public int DeleteAllByValue(int value)
+        {
+            int l = Length;
+            int number = 0;
+            Node crnt=_tail;
+
+            for (int i = l-1; i>=0; i--)
+            {
+                if (crnt.Value == value)
+                {
+                    DeleteByIndex(i);
+                    number++;
+                }
+                crnt = GetNodeByIndex(i-1);
+            }
+            return number;
+        }
+
         private Node GetNodeByIndex(int index)
         {
             Node crnt = _root;
