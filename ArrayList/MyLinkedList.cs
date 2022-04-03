@@ -349,6 +349,52 @@ namespace MyLists
             return value;
         }
 
+        public int FindIndexOfMax()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("list is empty");
+            }
+
+            Node crnt = _root;
+            int value = crnt.Value;
+            int index = 0;
+            for (int i= 1; crnt.Next != null; i++)
+            {
+                crnt = crnt.Next;
+                if (crnt.Value > value)
+                {
+                    value = crnt.Value;
+                    index = i;
+                }
+            }
+
+            return index;
+        }
+
+        public int FindIndexOfMin()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("list is empty");
+            }
+
+            Node crnt = _root;
+            int value = crnt.Value;
+            int index = 0;
+            for (int i = 1; crnt.Next != null; i++)
+            {
+                crnt = crnt.Next;
+                if (crnt.Value < value)
+                {
+                    value = crnt.Value;
+                    index = i;
+                }
+            }
+
+            return index;
+        }
+
         private Node GetNodeByIndex(int index)
         {
             Node crnt = _root;

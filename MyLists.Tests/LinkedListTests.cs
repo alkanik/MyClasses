@@ -196,5 +196,35 @@ namespace MyLists.Tests
                 Assert.Throws<Exception>(() => list.FindMin());
             }
         }
+
+        [TestCaseSource(typeof(FindIndexOfMaxTestSource))]
+        public void FindIndexOfMaxTest(MyLinkedList list, int expectedIndex)
+        {
+            int actualIndex = list.FindIndexOfMax();
+            Assert.AreEqual(expectedIndex, actualIndex);
+        }
+
+        [TestCaseSource(typeof(FindIndexOfMaxNegativeTestSource))]
+        public void FindIndexOfMaxTest_WhenListIsempty_ShouldThrowException(MyLinkedList list)
+        {
+            {
+                Assert.Throws<Exception>(() => list.FindIndexOfMax());
+            }
+        }
+
+        [TestCaseSource(typeof(FindIndexOfMinTestSource))]
+        public void FindIndexOfMinTest(MyLinkedList list, int expectedIndex)
+        {
+            int actualIndex = list.FindIndexOfMin();
+            Assert.AreEqual(expectedIndex, actualIndex);
+        }
+
+        [TestCaseSource(typeof(FindIndexOfMinNegativeTestSource))]
+        public void FindIndexOfMinTest_WhenListIsempty_ShouldThrowException(MyLinkedList list)
+        {
+            {
+                Assert.Throws<Exception>(() => list.FindIndexOfMin());
+            }
+        }
     }
 }
