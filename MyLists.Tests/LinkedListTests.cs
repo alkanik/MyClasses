@@ -260,5 +260,13 @@ namespace MyLists.Tests
             Assert.AreEqual(expectedNumber, actualNumber);
             Assert.AreEqual(expectedList, actualList);
         }
+
+        [TestCaseSource(typeof(AddListInTheEndTestSource))]
+        public void AddListInTheEndTest(MyLinkedList list, MyLinkedList secondList, MyLinkedList expectedList)
+        {
+            list.AddListInTheEnd(secondList);
+            MyLinkedList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
     }
 }

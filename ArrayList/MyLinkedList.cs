@@ -504,6 +504,20 @@ namespace MyLists
             return number;
         }
 
+        public void AddListInTheEnd(MyLinkedList list)
+        {
+            if (this._root is null)
+            {
+                this._root = list._root;
+                this._tail = list._tail;
+            }
+            else
+            {
+                this._tail.Next = list._root;
+                this._tail = list._tail;
+            } 
+        }
+
         private Node GetNodeByIndex(int index)
         {
             Node crnt = _root;
