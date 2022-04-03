@@ -166,5 +166,12 @@ namespace MyLists.Tests
             MyLinkedList actualList = list;
             Assert.AreEqual(expectedList, actualList);
         }
+
+        [TestCaseSource(typeof(FindMaxTestSource))]
+        public void FindMaxTest(MyLinkedList list, int expectedValue)
+        {
+            int actualValue = list.FindMax();
+            Assert.AreEqual(expectedValue, actualValue);
+        }
     }
 }

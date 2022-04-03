@@ -307,6 +307,22 @@ namespace MyLists
             }
         }
 
+        public int FindMax()
+        {
+            Node crnt = _root;
+            int value = crnt.Value;
+            while (crnt.Next!=null)
+            {
+                crnt = crnt.Next;
+                if (crnt.Value > value)
+                {
+                    value = crnt.Value;
+                }
+            }
+
+            return value;
+        }
+
         private Node GetNodeByIndex(int index)
         {
             Node crnt = _root;
