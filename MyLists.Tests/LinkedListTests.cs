@@ -173,5 +173,28 @@ namespace MyLists.Tests
             int actualValue = list.FindMax();
             Assert.AreEqual(expectedValue, actualValue);
         }
+
+        [TestCaseSource(typeof(FindMaxNegativeTestSource))]
+        public void FindMaxTest_WhenListIsempty_ShouldThrowException(MyLinkedList list)
+        {
+            {
+                Assert.Throws<Exception>(() => list.FindMax());
+            }
+        }
+
+        [TestCaseSource(typeof(FindMinTestSource))]
+        public void FindMinTest(MyLinkedList list, int expectedValue)
+        {
+            int actualValue = list.FindMin();
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestCaseSource(typeof(FindMinNegativeTestSource))]
+        public void FindMinTest_WhenListIsempty_ShouldThrowException(MyLinkedList list)
+        {
+            {
+                Assert.Throws<Exception>(() => list.FindMin());
+            }
+        }
     }
 }

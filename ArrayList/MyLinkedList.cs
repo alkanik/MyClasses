@@ -309,12 +309,38 @@ namespace MyLists
 
         public int FindMax()
         {
+            if (Length == 0)
+            {
+                throw new Exception("list is empty");
+            }
+
             Node crnt = _root;
             int value = crnt.Value;
             while (crnt.Next!=null)
             {
                 crnt = crnt.Next;
                 if (crnt.Value > value)
+                {
+                    value = crnt.Value;
+                }
+            }
+
+            return value;
+        }
+
+        public int FindMin()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("list is empty");
+            }
+
+            Node crnt = _root;
+            int value = crnt.Value;
+            while (crnt.Next != null)
+            {
+                crnt = crnt.Next;
+                if (crnt.Value < value)
                 {
                     value = crnt.Value;
                 }
