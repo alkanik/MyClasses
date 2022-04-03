@@ -158,5 +158,13 @@ namespace MyLists.Tests
                 Assert.Throws<IndexOutOfRangeException>(() => list.ChangeValueByIndex(index, value));
             }
         }
+
+        [TestCaseSource(typeof(ReverseTestSource))]
+        public void ReverseTest(MyLinkedList list, MyLinkedList expectedList)
+        {
+            list.Reverse();
+            MyLinkedList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
     }
 }

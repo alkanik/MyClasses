@@ -283,6 +283,30 @@ namespace MyLists
             }
         }
 
+        public void Reverse()
+        {
+            Node tmp = _root;
+            if (Length <= 1)
+            {
+            }
+            else
+            {
+                Node crnt = _root.Next;
+                for (int i=0; crnt.Next!=null; i++)
+                {
+                    
+                    tmp.Next = tmp.Next.Next;
+                    crnt.Next = _root;
+                    _root = crnt;
+                    crnt = tmp.Next;
+                }
+                crnt.Next = _root;
+                tmp.Next = null;
+                _root = crnt;
+                _tail = tmp;
+            }
+        }
+
         private Node GetNodeByIndex(int index)
         {
             Node crnt = _root;
