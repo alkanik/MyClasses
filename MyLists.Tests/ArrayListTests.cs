@@ -68,5 +68,21 @@ namespace MyLists.Tests
             MyArrayList actualList = list;
             Assert.AreEqual(expectedList, actualList);
         }
+
+        [TestCaseSource(typeof(AddListByIndexTestSource))]
+        public void AddListByIndexTest(int index, MyArrayList list, MyArrayList secondList, MyArrayList expectedList)
+        {
+            list.AddListByIndex(index, secondList);
+            MyArrayList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(AddListByIndexNegativeTestSourse))]
+        public void AddListByIndexTest_WhenIndexIsOutOfRange_ShouldThrowIndexOutOfRangeException(int index, MyArrayList list, MyArrayList secondList)
+        {
+            {
+                Assert.Throws<IndexOutOfRangeException>(() => list.AddListByIndex(index, secondList));
+            }
+        }
     }
 }

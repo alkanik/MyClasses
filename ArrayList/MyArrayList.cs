@@ -398,6 +398,34 @@ namespace MyList
             this.Length = newLength;
         }
 
+        public void AddListByIndex(int index, MyArrayList secondlist)
+        {
+            if(index < 0 || index >= this.Length)
+            {
+                throw new IndexOutOfRangeException();
+            }
+
+            int newLength = this.Length + secondlist.Length;
+            if (newLength >= this._array.Length)
+            {
+                while (newLength >= this._array.Length)
+                {
+                    this.UpSize();
+                }
+            }
+            for (int i = this.Length-1; i >= index; i--)
+            {
+                this._array[i+secondlist.Length] = this._array[i];
+            }
+
+            for (int i = 0; i< secondlist.Length; i++)
+            {
+                this._array[index] = secondlist._array[i];
+                index++;
+            }
+            this.Length = newLength;
+        }
+
         private void UpSize()
         {
             int newLength = (int)(_array.Length * 1.5d + 1);
