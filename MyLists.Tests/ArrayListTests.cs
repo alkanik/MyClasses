@@ -50,5 +50,14 @@ namespace MyLists.Tests
             Assert.AreEqual(expectedNumber, actualNumber);
             Assert.AreEqual(expectedList, actualList);
         }
+
+        [TestCaseSource(typeof(AddListInTheEndTestSource))]
+        public void AddListInTheEndTest(MyArrayList list, MyArrayList secondList, MyArrayList expectedList)
+        {
+            list.AddListInTheEnd(secondList);
+
+            MyArrayList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
     }
 }

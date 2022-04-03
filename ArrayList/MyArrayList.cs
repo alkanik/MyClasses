@@ -361,6 +361,23 @@ namespace MyList
 
             return count;
         }
+        public void AddListInTheEnd(MyArrayList list)
+        {
+         
+            int newLength = this.Length + list.Length;
+            if (newLength >= this._array.Length)
+            {
+                while(newLength >= this._array.Length)
+                {
+                    this.UpSize();
+                }
+            }
+            for(int i=0; i < list.Length; i++)
+            {
+                this._array[i+this.Length] = list[i];
+            }
+            this.Length = newLength;
+        }
 
         private void UpSize()
         {
