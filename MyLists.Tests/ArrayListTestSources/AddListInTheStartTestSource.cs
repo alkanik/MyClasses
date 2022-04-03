@@ -7,13 +7,13 @@ using MyList;
 
 namespace MyLists.Tests.ArrayListTestSources
 {
-    internal class AddListInTheEndTestSource : IEnumerable
+    internal class AddListInTheStartTestSource : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {
             MyArrayList list = new MyArrayList(new int[] { 1, 2, 3, 4,5,6,7,8,9,10});
             MyArrayList secondList = new MyArrayList(new int[] { 11,12 });
-            MyArrayList expectedList = new MyArrayList(new int[] { 1, 2, 3, 4,5,6,7,8,9,10,11,12 });
+            MyArrayList expectedList = new MyArrayList(new int[] { 11,12,1, 2, 3, 4,5,6,7,8,9,10 });
             yield return new object[] { list, secondList, expectedList };
 
             list = new MyArrayList(new int[] { });

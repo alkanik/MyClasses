@@ -374,8 +374,27 @@ namespace MyList
             }
             for(int i=0; i < list.Length; i++)
             {
-                this._array[i+this.Length] = list[i];
+                this._array[i+this.Length] = list._array[i];
             }
+            this.Length = newLength;
+        }
+
+        public void AddListInTheStart(MyArrayList secondlist)
+        {
+
+            int newLength = this.Length + secondlist.Length;
+            if (newLength >= secondlist._array.Length)
+            {
+                while (newLength >= secondlist._array.Length)
+                {
+                    secondlist.UpSize();
+                }
+            }
+            for (int i = 0; i < this.Length; i++)
+            {
+                secondlist._array[i + secondlist.Length] = this._array[i];
+            }
+            this._array = secondlist._array;
             this.Length = newLength;
         }
 
