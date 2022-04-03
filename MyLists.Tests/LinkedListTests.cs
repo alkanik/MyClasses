@@ -142,5 +142,21 @@ namespace MyLists.Tests
             int actualIndex = list.FindIndexByValue(value);
             Assert.AreEqual(expectedIndex, actualIndex);
         }
+
+        [TestCaseSource(typeof(ChangeValueByIndexTestSource))]
+        public void ChangeValueByIndexTest(int index, int value, MyLinkedList list, MyLinkedList expectedList)
+        {
+            list.ChangeValueByIndex(index, value);
+            MyLinkedList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(ChangeValueByIndexNegativeTestSource))]
+        public void ChangeValueByIndexTest_WhenIndexOutOfRange_ShouldThrowIndexOutOfRangeException(int index, int value, MyLinkedList list)
+        {
+            {
+                Assert.Throws<IndexOutOfRangeException>(() => list.ChangeValueByIndex(index, value));
+            }
+        }
     }
 }

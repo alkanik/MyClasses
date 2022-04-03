@@ -271,6 +271,18 @@ namespace MyLists
             return index;
         }
 
+        public void ChangeValueByIndex(int index, int value)
+        {
+            if (index<0 || index >= Length)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            else
+            {
+                GetNodeByIndex(index).Value = value;
+            }
+        }
+
         private Node GetNodeByIndex(int index)
         {
             Node crnt = _root;
