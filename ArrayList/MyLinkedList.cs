@@ -528,6 +528,22 @@ namespace MyLists
             }
         }
 
+        public void AddListByIndex(int index, MyLinkedList list)
+        {
+            if (index < 0 || index > Length - 1)
+            {
+                throw new IndexOutOfRangeException();
+            }
+
+            else if (list._root != null)
+            {
+                Node gap = GetNodeByIndex(index);
+                Node prev = GetNodeByIndex(index-1);
+                prev.Next = list._root;
+                list._tail.Next = gap;
+            }
+        }
+
         private Node GetNodeByIndex(int index)
         {
             Node crnt = _root;

@@ -276,5 +276,21 @@ namespace MyLists.Tests
             MyLinkedList actualList = list;
             Assert.AreEqual(expectedList, actualList);
         }
+
+        [TestCaseSource(typeof(AddListByIndexTestSource))]
+        public void AddListByIndexTest(int index, MyLinkedList list, MyLinkedList secondList, MyLinkedList expectedList)
+        {
+            list.AddListByIndex(index, secondList);
+            MyLinkedList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(AddListByIndexNegativeTestSource))]
+        public void AddListByIndexTest_WhenIndexIsOutOfRange_ShouldThrowIndexOutOFRangeException(int index, MyLinkedList list)
+        {
+            {
+                Assert.Throws<IndexOutOfRangeException>(() => list.AddListByIndex(index, list));
+            }
+        }
     }
 }
