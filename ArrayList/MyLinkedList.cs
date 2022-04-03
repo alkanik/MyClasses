@@ -395,6 +395,80 @@ namespace MyLists
             return index;
         }
 
+        public void SortAscending()
+        {
+            int l = Length;
+            Node crnt;
+            Node prev;
+
+            for (int i = l - 2; i >= 0; i--)
+            {
+                if (i == 0)
+                {
+                    crnt = _root;
+                    if (crnt.Next != null && crnt.Value > crnt.Next.Value)
+                    {
+                        _root = crnt.Next;
+                        crnt.Next = _root.Next;
+                        _root.Next = crnt;
+                    }
+                    prev = _root;
+                }
+                else
+                {
+                    prev = GetNodeByIndex(i - 1);
+                    crnt = prev.Next;
+                }
+
+                while (crnt.Next != null && crnt.Value > crnt.Next.Value)
+                {
+                    prev.Next = crnt.Next;
+                    crnt.Next = prev.Next.Next;
+                    prev.Next.Next = crnt;
+                    prev = prev.Next;
+                }
+            }
+
+            _tail = GetNodeByIndex(l - 1);
+        }
+
+        public void SortDescending()
+        {
+            int l = Length;
+            Node crnt;
+            Node prev;
+
+            for (int i = l - 2; i >= 0; i--)
+            {
+                if (i == 0)
+                {
+                    crnt = _root;
+                    if (crnt.Next != null && crnt.Value < crnt.Next.Value)
+                    {
+                        _root = crnt.Next;
+                        crnt.Next = _root.Next;
+                        _root.Next = crnt;
+                    }
+                    prev = _root;
+                }
+                else
+                {
+                    prev = GetNodeByIndex(i - 1);
+                    crnt = prev.Next;
+                }
+
+                while (crnt.Next != null && crnt.Value < crnt.Next.Value)
+                {
+                    prev.Next = crnt.Next;
+                    crnt.Next = prev.Next.Next;
+                    prev.Next.Next = crnt;
+                    prev = prev.Next;
+                }
+            }
+
+            _tail = GetNodeByIndex(l - 1);
+        }
+
         private Node GetNodeByIndex(int index)
         {
             Node crnt = _root;

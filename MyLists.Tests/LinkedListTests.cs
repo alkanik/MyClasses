@@ -226,5 +226,21 @@ namespace MyLists.Tests
                 Assert.Throws<Exception>(() => list.FindIndexOfMin());
             }
         }
+
+        [TestCaseSource(typeof(SortAscendingTestSource))]
+        public void SortAscendingTest(MyLinkedList list, MyLinkedList expectedList)
+        {
+            list.SortAscending();
+            MyLinkedList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(SortDescendingTestSource))]
+        public void SortDescendingTest(MyLinkedList list, MyLinkedList expectedList)
+        {
+            list.SortDescending();
+            MyLinkedList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
     }
 }
