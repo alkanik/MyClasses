@@ -268,5 +268,13 @@ namespace MyLists.Tests
             MyLinkedList actualList = list;
             Assert.AreEqual(expectedList, actualList);
         }
+
+        [TestCaseSource(typeof(AddListInTheStartTestSource))]
+        public void AddListInTheStartTest(MyLinkedList list, MyLinkedList secondList, MyLinkedList expectedList)
+        {
+            list.AddListInTheStart(secondList);
+            MyLinkedList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
     }
 }

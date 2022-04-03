@@ -518,6 +518,16 @@ namespace MyLists
             } 
         }
 
+        public void AddListInTheStart(MyLinkedList list)
+        {
+            if (list._root != null)
+            {
+                list._tail.Next = this._root;
+                list._tail = this._tail;
+                this._root = list._root;
+            }
+        }
+
         private Node GetNodeByIndex(int index)
         {
             Node crnt = _root;
