@@ -165,6 +165,14 @@ namespace MyLists.Tests
             }
         }
 
+        [TestCaseSource(typeof(ReverseTestSource))]
+        public void ReverseTest(MyArrayList list, MyArrayList expectedList)
+        {
+            list.Reverse();
+            MyArrayList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
+
         [TestCaseSource(typeof(DeleteAllByValueTestSource))]
         public void DeleteAllByValueTest(int value, MyArrayList list, MyArrayList expectedList, int expectedNumber)
         {
