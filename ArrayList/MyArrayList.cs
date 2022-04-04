@@ -157,7 +157,7 @@ namespace MyList
                 Length--;
             }
 
-            if (_array.Length / Length >= 2)
+            if (Length > 0 && _array.Length / Length >= 2)
             {
                 DownSize();
             }
@@ -177,7 +177,7 @@ namespace MyList
             }
             Length = newLength;
 
-            if (_array.Length / Length >= 2)
+            if (Length >0 && _array.Length / Length >= 2)
             {
                 DownSize();
             }
@@ -185,9 +185,9 @@ namespace MyList
 
         public void DeleteNByIndex(int n, int index)
         {
-            if (Length <= 0)
+            if (index < 0 || index >= Length || index + n > Length)
             {
-                throw new Exception("list can't be empty");
+                throw new IndexOutOfRangeException();
             }
 
             int newLength = Length - n;
@@ -198,7 +198,7 @@ namespace MyList
             }
             Length = newLength;
 
-            if (_array.Length / Length >= 2)
+            if (Length > 0 && _array.Length / Length >= 2)
             {
                 DownSize();
             }
@@ -223,9 +223,9 @@ namespace MyList
 
         public void ChangeValueByIndex(int index, int value)
         {
-            if (Length <= index)
+            if (Length <= index || index <0)
             {
-                throw new Exception("index out of range");
+                throw new IndexOutOfRangeException();
             }
 
             _array[index] = value;

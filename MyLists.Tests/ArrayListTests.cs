@@ -40,6 +40,131 @@ namespace MyLists.Tests
             }
         }
 
+        [TestCaseSource(typeof(DeleteLastTestSource))]
+        public void DeleteLastTest(MyArrayList list, MyArrayList expectedList)
+        {
+            list.DeleteLast();
+
+            MyArrayList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(DeleteLastAndFirstNegativeTestSource))]
+        public void DeleteLastTest_WhenListIsEmpty_ShouldThrowExeption(MyArrayList list)
+        {
+            {
+                Assert.Throws<Exception>(() => list.DeleteLast());
+            }
+        }
+
+        [TestCaseSource(typeof(DeleteFirstTestSource))]
+        public void DeleteFirstTest(MyArrayList list, MyArrayList expectedList)
+        {
+            list.DeleteFirst();
+
+            MyArrayList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(DeleteLastAndFirstNegativeTestSource))]
+        public void DeleteFirstTest_WhenListIsEmpty_ShouldThrowExeption(MyArrayList list)
+        {
+            {
+                Assert.Throws<Exception>(() => list.DeleteFirst());
+            }
+        }
+
+        [TestCaseSource(typeof(DeleteByIndexTestSource))]
+        public void DeleteByIndexTest(int index, MyArrayList list, MyArrayList expectedList)
+        {
+            list.DeleteByIndex(index);
+
+            MyArrayList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(DeleteByIndexNegativeTestSource))]
+        public void DeleteByIndexTest_WhenIndexIsOutOfRange_ShouldThrowIndexOutOfRangeException(int index, MyArrayList list)
+        {
+            {
+                Assert.Throws<IndexOutOfRangeException>(() => list.DeleteByIndex(index));
+            }
+        }
+
+        [TestCaseSource(typeof(DeleteNLastTestSource))]
+        public void DeleteNLastTest(int n, MyArrayList list, MyArrayList expectedList)
+        {
+            list.DeleteNLast(n);
+
+            MyArrayList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(DeleteNLastNegativeTestSource))]
+        public void DeleteNLastTest_WhenListIsEmpty_ShouldThrowExeption(int n, MyArrayList list)
+        {
+            {
+                Assert.Throws<Exception>(() => list.DeleteNLast(n));
+            }
+        }
+
+        [TestCaseSource(typeof(DeleteNFirstTestSource))]
+        public void DeleteNFirstTest(int n, MyArrayList list, MyArrayList expectedList)
+        {
+            list.DeleteNFirst(n);
+
+            MyArrayList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(DeleteNLastNegativeTestSource))]
+        public void DeleteNFirstTest_WhenListIsEmpty_ShouldThrowExeption(int n, MyArrayList list)
+        {
+            {
+                Assert.Throws<Exception>(() => list.DeleteNFirst(n));
+            }
+        }
+
+        [TestCaseSource(typeof(DeleteNByIndexTestSource))]
+        public void DeleteNByIndexTest(int n, int index, MyArrayList list, MyArrayList expectedList)
+        {
+            list.DeleteNByIndex(n, index);
+
+            MyArrayList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(DeleteNByIndexNegativeTestSource))]
+        public void DeleteNByIndexTest_WhenIndexIsOutOfRange_ShouldThrowIndexOutOfRangeException(int n, int index, MyArrayList list)
+        {
+            {
+                Assert.Throws<IndexOutOfRangeException>(() => list.DeleteNByIndex(n, index));
+            }
+        }
+
+        [TestCaseSource(typeof(FindIndexByValueTestSource))]
+        public void FindIndexByValueTest(int value, MyArrayList list, int expectedIndex)
+        {
+            int actualIndex = list.FindIndexByValue(value);
+            Assert.AreEqual(expectedIndex, actualIndex);
+        }
+
+        [TestCaseSource(typeof(ChangeValueByIndexTestSource))]
+        public void ChangeValueByIndexTest(int index, int value, MyArrayList list, MyArrayList expectedList)
+        {
+            list.ChangeValueByIndex(index, value);
+            MyArrayList actualList = list;
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(ChangeValueByIndexNegativeTestSource))]
+        public void ChangeValueByIndexTest_WhenIndexIsOutOfRange_ShouldThrowIndexOutOfRangeException(int index, int value, MyArrayList list)
+        {
+            {
+                Assert.Throws<IndexOutOfRangeException>(() => list.ChangeValueByIndex(index, value));
+            }
+        }
+
         [TestCaseSource(typeof(DeleteAllByValueTestSource))]
         public void DeleteAllByValueTest(int value, MyArrayList list, MyArrayList expectedList, int expectedNumber)
         {
