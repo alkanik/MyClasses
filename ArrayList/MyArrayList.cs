@@ -242,6 +242,11 @@ namespace MyList
         }
         public int FindMax()
         {
+            if (Length == 0)
+            {
+                throw new Exception("list is empty");
+            }
+
             int max = _array[0];
             for (int i = 1; i < Length; i++)
             {
@@ -255,6 +260,11 @@ namespace MyList
 
         public int FindMin()
         {
+            if (Length == 0)
+            {
+                throw new Exception("list is empty");
+            }
+
             int min = _array[0];
             for (int i = 1; i < Length; i++)
             {
@@ -268,6 +278,11 @@ namespace MyList
 
         public int FindIndexMax()
         {
+            if (Length == 0)
+            {
+                throw new Exception("list is empty");
+            }
+
             int max = _array[0];
             int index = 0;
             for (int i = 1; i < Length; i++)
@@ -283,6 +298,11 @@ namespace MyList
 
         public int FindIndexMin()
         {
+            if (Length == 0)
+            {
+                throw new Exception("list is empty");
+            }
+
             int min = _array[0];
             int index = 0;
             for (int i = 1; i < Length; i++)
