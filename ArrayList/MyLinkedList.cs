@@ -506,15 +506,16 @@ namespace MyLists
 
         public void AddListInTheEnd(MyLinkedList list)
         {
+            MyLinkedList newList = list.Copy();
             if (this._root is null)
             {
-                this._root = list._root;
-                this._tail = list._tail;
+                this._root = newList._root;
+                this._tail = newList._tail;
             }
             else
             {
-                this._tail.Next = list._root;
-                this._tail = list._tail;
+                this._tail.Next = newList._root;
+                this._tail = newList._tail;
             } 
         }
 
@@ -522,9 +523,10 @@ namespace MyLists
         {
             if (list._root != null)
             {
-                list._tail.Next = this._root;
-                list._tail = this._tail;
-                this._root = list._root;
+                MyLinkedList newList = list.Copy();
+                newList._tail.Next = this._root;
+                newList._tail = this._tail;
+                this._root = newList._root;
             }
         }
 
@@ -537,10 +539,11 @@ namespace MyLists
 
             else if (list._root != null)
             {
+                MyLinkedList newList = list.Copy();
                 Node gap = GetNodeByIndex(index);
                 Node prev = GetNodeByIndex(index-1);
-                prev.Next = list._root;
-                list._tail.Next = gap;
+                prev.Next = newList._root;
+                newList._tail.Next = gap;
             }
         }
 
@@ -552,6 +555,20 @@ namespace MyLists
                 crnt = crnt.Next;
             }
             return crnt;
+        }
+
+        public MyLinkedList Copy()
+        {
+            int l = this.Length;
+            MyLinkedList newList = new MyLinkedList();
+            
+            for(int i=0; i<l; i++)
+            {
+                newList.AddLast(this.GetNodeByIndex(i).Value);
+            }
+            newList._root = newList.GetNodeByIndex(0);
+            newList._tail = newList.GetNodeByIndex(l - 1);
+            return newList;
         }
 
         public override string ToString()

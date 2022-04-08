@@ -292,5 +292,12 @@ namespace MyLists.Tests
                 Assert.Throws<IndexOutOfRangeException>(() => list.AddListByIndex(index, list));
             }
         }
+
+        [TestCaseSource(typeof(CopyTestSource))]
+        public void CopyTest(MyLinkedList list, MyLinkedList expectedList)
+        {
+            MyLinkedList actualList = list.Copy();
+            Assert.AreEqual(expectedList, actualList);
+        }
     }
 }
